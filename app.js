@@ -1,8 +1,20 @@
 let color = 'black'
+let click = false
 
 document.addEventListener('DOMContentLoaded', function () {
     createBoard(16)
     // getSize() called when selsct is clicked
+    document.querySelector('body').addEventListener('click', function (e) {
+        if (e.target.tagName != "BUTTON") {
+            click = !click;
+            let draw = document.querySelector('#draw')
+            if (click) {
+                draw.textContent = 'you can draw'
+            } else {
+                draw.textContent = "you can't draw"
+            }
+        }
+    })
     let btn_popup = document.querySelector('#popup')
     btn_popup.addEventListener('click', function () {
         let size = getSize()
@@ -44,11 +56,13 @@ function getSize() {
 }
 
 function colorDiv() {
-    if (color == 'random') {
-        this.style.background = `hsl(${Math.random() * 360},100% ,50%)`
-    } else {
-        this.style.background = 'black'
+    if (click) {
+        if (color == 'random') {
+            this.style.background = `hsl(${Math.random() * 360},100% ,50%)`
+        } else {
+            this.style.background = 'black'
 
+        }
     }
 
 }
