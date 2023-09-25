@@ -15,11 +15,12 @@
         <h3>Select size</h3>
         <button id="popup" class="btn btn-primary">select</button>
     </div>
+    <p id="message"></p>
     <div class="board"></div>
     <div class="footer">
-        <button class="btn btn-dark">black</button>
-        <button class="btn btn-info">random</button>
-        <button class="btn btn-danger">reset</button>
+        <button class="btn btn-dark" onclick="setColor('black')">black</button>
+        <button class="btn btn-info" onclick="setColor('random')">random</button>
+        <button class="btn btn-danger" onclick="resetBoard()">reset</button>
     </div>
 
     <script src="app.js"></script>
